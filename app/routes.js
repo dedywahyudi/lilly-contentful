@@ -40,14 +40,168 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '/symposium',
-      name: 'symposium',
+      path: '/basic-content',
+      name: 'BasicContent',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
           import('containers/HomePage/sagastudio'),
-          import('containers/Symposium'),
+          import('containers/BasicContent'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/collapsible-section',
+      name: 'CollapsibleSection',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/CollapsibleSection'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/edit-section',
+      name: 'EditSection',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/EditSection'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/data-table',
+      name: 'DataTable',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/DataTable'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/link-list',
+      name: 'LinkList',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/LinkList'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/video',
+      name: 'Video',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/Video'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/team-member',
+      name: 'TeamMember',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/TeamMember'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/local-content',
+      name: 'LocalContent',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/LocalContent'),
         ]);
 
         const renderRoute = loadModule(cb);

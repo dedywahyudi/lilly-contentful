@@ -287,6 +287,13 @@ html {
 .contentful-box {
   padding: 5px 10px;
   margin-bottom: 40px;
+  p.cf-btn-primary.cf-block{
+    text-align: left;
+    font-size: 16px;
+    background: #5b9fef;
+    border: none;
+    cursor: default!important;
+  }
   .cf-form-hint{
     font-style: italic;
   }
