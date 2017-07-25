@@ -1,0 +1,403 @@
+@media only screen and (max-width: $layout-breakpoint-iphone-portrait) {
+
+}
+
+@media only screen and (max-width: $layout-breakpoint-iphone-landscape) {
+  // .submit-your-resume .form-row,
+  // .submit-your-resume input,
+  // .ui.input{
+  //   width: 100%!important;
+  // }
+
+  #sub-page #career-banner .symposium-intro,
+  #sub-page #career-banner .symposium-intro .symposium-intro-content{
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+  }
+
+  #sub-page #career-banner .symposium-intro .symposium-intro-content{
+    padding-top: 20px;
+  }
+
+  #two-cols a.fRight{
+    margin-bottom: 40px;
+  }
+
+  #left-col p img{
+    width: 100%;
+  }
+
+  #left-col .presentation-row .presentation-title{
+    padding-left: 0;
+  }
+
+  #left-col .presentation-row .speaker-block .user-info,
+  #right-col.symposium .user-info{
+    max-width: 200px!important;
+  }
+
+  #left-col .presentation-row .speaker-block.half{
+    width: 100%!important;
+    max-width: 100%!important;
+  }
+
+  #sub-page #main-slider .slick-active.slick-center,
+  #sub-page #main-slider .slick-slide,
+  #sub-page #main-slider .slick-slide a .active-overlay,
+  #sub-page #main-slider .slick-slide .hover-slide,
+  #sub-page #main-slider .slick-slide .hover-slide .hover-slide-title{
+    width: 100%!important;
+  }
+
+  #sub-page #main-slider .slick-slide .hover-slide{
+    opacity: 1!important;
+  }
+
+  #sub-page #main-slider .slick-slide .hover-slide p{
+    display: none;
+  }
+
+  .submit-your-resume h1,
+  .submit-your-resume p,
+  {
+    padding: 0 20px;
+  }
+
+  .submit-your-resume.aplication-invitation .form-row{
+    width: 100%!important;
+  }
+
+  .submit-your-resume.aplication-invitation .form-row .label{
+    min-width: 100%!important;
+    max-width: 100%!important;
+    line-height: 44px!important;
+  }
+
+  .submit-your-resume .form-row,
+  .submit-your-resume.aplication-invitation #submit-resume-form .form-row{
+    padding: 0 20px 0 20px!important;
+    // margin-bottom: 20px;
+    display: block!important;
+    width: 100%!important;
+    clear: both!important;
+  }
+
+  .submit-your-resume .upload-row .upload-col:nth-child(1){
+    margin-right: 0!important;
+    width: 100%!important;
+  }
+
+  .submit-your-resume .upload-row .upload-col .dropzone-style,
+  .submit-your-resume .upload-row{
+    display: block;
+    width: 100%!important;
+  }
+
+  .submit-your-resume .form-row .label,
+  .submit-your-resume.aplication-invitation #submit-resume-form .form-row .label{
+    display: block;
+    width: 100%;
+    float: none;
+    min-width: 100%!important;
+    max-width: 100%!important;
+    padding: 0!important;
+  }
+
+  .submit-your-resume.aplication-invitation #submit-resume-form .form-row .label{
+    margin-bottom: 10px;
+  }
+
+  .submit-your-resume .form-row .ui.input,
+  .submit-your-resume .form-row .ui.input input{
+    display: table!important;
+    width: 100%!important;
+    clear: both!important;
+    height: auto;
+  }
+
+  .submit-your-resume .ui.selection.dropdown{
+    display: table!important;
+    width: 100%!important;
+    clear: both!important;
+    height: auto;
+  }
+
+  .sub-page p.small{
+    padding: 0 20px;
+  }
+
+  #left-col p.small{
+    padding: 0px!important;
+  }
+
+  #search-not-found{
+    width: 100%!important;
+  }
+  #footer{
+    padding-top: 50px!important;
+  }
+  .contact-cards{
+    .ui.card{
+      width: 100%!important;
+    }
+  }
+
+  .ui.card,
+  .card-hover-wrapper,
+  .hover-above,
+  .hover-below,
+  .hover-overlay{
+    width: 100%!important;
+  }
+
+  .hover-below img{
+    width: 100%!important;
+  }
+
+  .main-logo{
+    float: none!important;
+    display: block;
+    margin: 20px auto 0 auto!important;
+  }
+
+  .menu-mobile{
+    float: none;
+    position: absolute;
+    top: 0px;
+    .icon{
+      color:  $color-red;
+      font-size: 20px!important;
+    }
+  }
+
+  #footer{
+    display: block;
+    .footer-logo,
+    .footer-column{
+      margin-bottom: 20px;
+    }
+    .footer-column,
+    .footer-logo,
+    #footer-left,
+    #footer-right{
+      display: block;
+      float: none!important;
+      width: 100%;
+      clear: both;
+    }
+    .footer-column{
+      &.studio{
+        width: 100%!important;
+        margin-bottom: 20px!important;
+        li{
+          width: 100%!important;
+        }
+      }
+      &:last-child{
+        h3{
+          display: none;
+        }
+      }
+    }
+    #footer-right{
+      h3{
+        margin-left: 0!important;
+      }
+    }
+  }
+
+  #main-navigation,
+  #search-box,
+  .ui.card.no-border.aligner{
+    display: none;
+  }
+
+  #search-mobile{
+    display: block;
+  }
+
+  #landing-page{
+    padding: 0;
+    min-height: 0;
+    .landing-wrapper{
+      width: 100%;
+      min-width: 100%!important;
+    }
+    #landing-message{
+      display: block;
+      // background: url('../images/bg-homepage-mobile.png') no-repeat left top!important;
+      margin: 0 auto;
+      width: 351px;
+      display: block!important;
+      position: relative;
+      clear: both!important;
+      margin: 0 20px!important;
+      float: none;
+      top: 0px!important;
+      #landing-message-inner{
+        top: 60px;
+        left: 20px;
+        h2{
+          font-size: 20px;
+        }
+        p{
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+    }
+    #landing-slider{
+      float: none;
+      display: block;
+      position: relative;
+      width: 100%!important;
+      height: 100%!important;
+    }
+  }
+
+  .top-pagination{
+    h2{
+      display: block;
+      float: none;
+      text-align: center;
+    }
+    .fRight{
+      float: left;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .contributors-social{
+      float: left!important;
+    }
+  }
+
+  .bottom-pagination{
+    .ui.columns{
+      align-self: center;
+    }
+    .fLeft{
+      float: none;
+      display: block;
+      width: 170px;
+      margin: 0 auto;
+    }
+    .pagination,
+    .ui.pagination.fRight{
+      float: none;
+      width: auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .wrapper.sub-page{
+    padding: 0px!important;
+    overflow: hidden;
+    #two-cols{
+      flex: none;
+      display: block;
+    }
+    #left-col{
+      flex: none;
+      display: block;
+      padding: 40px 20px!important;
+    }
+    #right-col{
+      flex: none;
+      display: block;
+      padding: 20px!important;
+      width: 100%!important;
+
+    }
+  }
+
+}
+
+@media only screen and (min-width: $layout-breakpoint-ipad-portrait) {
+  #search-mobile{
+    display: none!important;
+  }
+
+  .menu-mobile{
+    display: none!important;
+  }
+
+}
+
+// @media only screen and (max-width: $layout-breakpoint-laptop) {
+//
+// }
+//
+// @media only screen and (min-width: 1400px) {
+//
+//   // #header .wrapper, #footer .wrapper, #breadcrumb, .wrapper.sub-page{
+//   //   margin-left: 10%;
+//   //   margin-right: 10%;
+//   // }
+//
+//   .landing-wrapper{
+//     max-height: 700px!important;
+//   }
+//
+// }
+//
+// @media only screen and (min-width: 1600px) {
+//
+//   // #header .wrapper, #footer .wrapper, #breadcrumb, .wrapper.sub-page{
+//   //   margin-left: 15%;
+//   //   margin-right: 15%;
+//   // }
+//   .landing-wrapper{
+//     max-height: 750px!important;
+//   }
+// }
+//
+// @media only screen and (min-width: 1800px) {
+//
+//   // #header .wrapper, #footer .wrapper, #breadcrumb, .wrapper.sub-page{
+//   //   margin-left: 20%;
+//   //   margin-right: 20%;
+//   // }
+//   .landing-wrapper{
+//     max-height: 800px!important;
+//   }
+// }
+//
+// @media only screen and (min-width: 2000px) {
+//
+//   // #header .wrapper, #footer .wrapper, #breadcrumb, #sub-page .wrapper{
+//   //   margin-left: 25%;
+//   //   margin-right: 25%;
+//   // }
+//   .landing-wrapper{
+//     max-height: 850px!important;
+//   }
+// }
+
+@media only screen and (min-width: $layout-breakpoint-ipad-portrait) and (max-width: $layout-breakpoint-laptop){
+  #footer-left{
+    float: none!important;
+    display: block!important;
+    clear: both!important;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #footer-right{
+    float: none!important;
+    display: block!important;
+    margin: 40px auto!important;
+    clear: both!important;
+    width: 200px!important;
+    h3{
+      text-align: center;
+      margin-left: 0!important;
+    }
+  }
+
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+}
