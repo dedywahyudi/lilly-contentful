@@ -1,24 +1,16 @@
-/*
-* HomePage
-*
-* This is the first thing users see of our App, at the '/' route
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import RichTextEditor from 'react-rte';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 // import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
 // import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
 // import { makeSelectSearch } from '../App/selectors';
 // import { loadRepos } from './actions';
 
-const FontAwesome = require('react-fontawesome');
+// const FontAwesome = require('react-fontawesome');
 // const Select = require('react-select');
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -160,7 +152,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 
               <div className="contentful-box border-grey">
                 <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Add New Section</label>
+                  <label className="cf-text-dimmed">Add New Content Section</label>
                   <Link to="/basic-content">
                     <button className="cf-btn-primary">Basic Content</button>
                   </Link>
@@ -242,7 +234,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                 </form>
               </div> */}
 
-              <div className="contentful-box border-grey">
+              {/* <div className="contentful-box border-grey">
 
                 <div className="cf-form-field">
                   <label className="cf-text-dimmed">Contain one or more content sections within a collapsible section?</label>
@@ -310,7 +302,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                 </div>
 
                 <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Add New Section</label>
+                  <label className="cf-text-dimmed">Add New Content Section</label>
                   <Link to="/basic-content">
                     <button className="cf-btn-primary">Basic Content</button>
                   </Link>
@@ -330,9 +322,9 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                     <button className="cf-btn-primary">Local Content</button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="contentful-box border-grey">
+              {/* <div className="contentful-box border-grey">
 
                 <div className="cf-form-field">
                   <label className="cf-text-dimmed">Contain one or more content sections within a collapsible section?</label>
@@ -383,7 +375,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                   <div className="collapsible-item">
                     <div className="collapsible-left">
                       <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label>Summary (Basic List)</label>
+                      <label>Summary (Basic Content)</label>
                     </div>
                     <div className="collapsible-right">
                       <button>Delete</button>
@@ -394,7 +386,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                 </div>
 
                 <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Add New Section</label>
+                  <label className="cf-text-dimmed">Add New Content Section</label>
                   <Link to="/basic-content">
                     <button className="cf-btn-primary">Basic Content</button>
                   </Link>
@@ -414,7 +406,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                     <button className="cf-btn-primary">Local Content</button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className="contentful-box border-blue">
                 <form>
@@ -458,7 +450,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                     <div className="collapsible-item">
                       <div className="collapsible-left">
                         <input type="checkbox" id="option-d" />
-                        <label htmlFor="option-d">Summary (Basic List</label>
+                        <label htmlFor="option-d">Summary (Basic Content)</label>
                       </div>
                       <div className="collapsible-right">
                         <button>Delete</button>
@@ -540,7 +532,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                   <div className="collapsible-item">
                     <div className="collapsible-left">
                       <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Summary (Basic List</label>
+                      <label htmlFor="option-d">Summary (Basic Content)</label>
                     </div>
                     <div className="collapsible-right">
                       <button>Delete</button>
@@ -551,7 +543,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                 </div>
 
                 <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Add New Section</label>
+                  <label className="cf-text-dimmed">Add New Content Section</label>
                   <button className="cf-btn-primary">Basic Content</button>
                   <button className="cf-btn-primary">Data Table</button>
                   <button className="cf-btn-primary">Link List</button>
@@ -930,7 +922,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                   </div>
 
                   <div className="cf-form-field">
-                    <label className="cf-text-dimmed">inVison Video Title <span className="cf-field-error">Required</span></label>
+                    <label className="cf-text-dimmed">inVision Video Title <span className="cf-field-error">Required</span></label>
                     <input type="text" value="" className="cf-form-input" aria-invalid="true" />
                     <div className="cf-form-hint">You will find the inVision video ID at the end of your video URL after the last /. it will look similar to this: 1_841itjtj.</div>
                   </div>
@@ -1019,40 +1011,4 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 }
 
-HomePage.propTypes = {
-  // loading: PropTypes.bool,
-  // repos: PropTypes.oneOfType([
-  //   PropTypes.any,
-  //   PropTypes.bool,
-  // ]),
-  // searchkeyword: PropTypes.string,
-  // onChangeSearch: PropTypes.func,
-  // onChangeSearcDefault: PropTypes.func,
-  // onSubmitForm: PropTypes.func,
-  // onLoadStudio: PropTypes.func,
-  // onChangeMainNav: PropTypes.func,
-};
-
-// export function mapDispatchToProps(dispatch) {
-//   return {
-//     onChangeSearch: (evt) => dispatch(changeSearch(evt.target.value)),
-//     onChangeSearcDefault: (value) => dispatch(changeSearch(value)),
-//     onSubmitForm: (evt) => {
-//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-//       dispatch(loadRepos());
-//     },
-//     onLoadStudio: () => { dispatch(loadStudioRepos()); },
-//     onChangeMainNav: (value) => dispatch(changeMainNav(value)),
-//   };
-// }
-
-const mapStateToProps = createStructuredSelector({
-  // searchkeyword: makeSelectSearch(),
-  // repos: makeSelectRepos(),
-  // pagename: makeSelectPage(),
-  // loading: makeSelectLoading(),
-  // error: makeSelectError(),
-});
-
-// Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;

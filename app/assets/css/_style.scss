@@ -255,6 +255,15 @@ html {
     font-size: 18px!important;
     line-height: 24px;
     margin-bottom: 40px;
+    p{
+      color: white;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      &.smaller{
+        color: white;
+        font-size: 14px!important;
+      }
+    }
   }
   .cf-form-field{
     position: absolute;
@@ -265,6 +274,10 @@ html {
     margin: 20px 0;
     &.ovHidden{
       overflow: hidden;
+      button{
+        padding-left: 30px;
+        padding-right: 30px;
+      }
     }
     .fRight{
       float: right;
@@ -399,6 +412,10 @@ html {
   }
   .ovHidden{
     overflow: hidden;
+    button{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
   .cf-form-field{
     display: block;

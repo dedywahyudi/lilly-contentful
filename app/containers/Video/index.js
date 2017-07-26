@@ -1,15 +1,7 @@
-/*
-* Video
-*
-* This is the first thing users see of our App, at the '/' route
-*/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import RichTextEditor from 'react-rte';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
 // import ReactModal from 'react-modal';
@@ -145,12 +137,12 @@ class Video extends React.PureComponent { // eslint-disable-line react/prefer-st
                   <div className="cf-form-field">
                     <label className="cf-text-dimmed">Wrap Text Around Image</label>
                     <select aria-invalid="true" className="cf-form-input">
-                      <option selected>Choose a value</option>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                      <option>Option 4</option>
-                      <option>Option 5</option>
+                      <option defaultValue>Choose a value</option>
+                      <option value="Option 1">Option 1</option>
+                      <option value="Option 2">Option 2</option>
+                      <option value="Option 3">Option 3</option>
+                      <option value="Option 4">Option 4</option>
+                      <option value="Option 5">Option 5</option>
                     </select>
                   </div>
 
@@ -176,40 +168,5 @@ class Video extends React.PureComponent { // eslint-disable-line react/prefer-st
   }
 }
 
-Video.propTypes = {
-  // loading: PropTypes.bool,
-  // repos: PropTypes.oneOfType([
-  //   PropTypes.any,
-  //   PropTypes.bool,
-  // ]),
-  // searchkeyword: PropTypes.string,
-  // onChangeSearch: PropTypes.func,
-  // onChangeSearcDefault: PropTypes.func,
-  // onSubmitForm: PropTypes.func,
-  // onLoadStudio: PropTypes.func,
-  // onChangeMainNav: PropTypes.func,
-};
-
-// export function mapDispatchToProps(dispatch) {
-//   return {
-//     onChangeSearch: (evt) => dispatch(changeSearch(evt.target.value)),
-//     onChangeSearcDefault: (value) => dispatch(changeSearch(value)),
-//     onSubmitForm: (evt) => {
-//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-//       dispatch(loadRepos());
-//     },
-//     onLoadStudio: () => { dispatch(loadStudioRepos()); },
-//     onChangeMainNav: (value) => dispatch(changeMainNav(value)),
-//   };
-// }
-
-const mapStateToProps = createStructuredSelector({
-  // searchkeyword: makeSelectSearch(),
-  // repos: makeSelectRepos(),
-  // pagename: makeSelectPage(),
-  // loading: makeSelectLoading(),
-  // error: makeSelectError(),
-});
-
 // Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps)(Video);
+export default Video;

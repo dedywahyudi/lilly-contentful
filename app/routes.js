@@ -62,6 +62,50 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/homepage1',
+      name: 'HomePage1',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/HomePage1'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/homepage-indent',
+      name: 'HomePageIndent',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/HomePageIndent'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/collapsible-section',
       name: 'CollapsibleSection',
       getComponent(nextState, cb) {
