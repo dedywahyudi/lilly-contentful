@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import RichTextEditor from 'react-rte';
+// import RichTextEditor from 'react-rte';
 // import { connect } from 'react-redux';
 // import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router';
@@ -17,15 +17,15 @@ import ReactModal from 'react-modal';
 
 class CollapsibleContent extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
-  static propTypes = {
-    onChange: PropTypes.func,
-  };
+  // static propTypes = {
+  //   onChange: PropTypes.func,
+  // };
 
   constructor(props) {
     super(props);
     this.state = {
       showModal: false,
-      valueTextEditor: RichTextEditor.createEmptyValue(),
+      // valueTextEditor: RichTextEditor.createEmptyValue(),
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -43,18 +43,6 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
     // this.props.onChangeSearcDefault('');
   }
 
-  onChange = (valueTextEditor) => {
-    this.setState({ valueTextEditor });
-    if (this.props.onChange) {
-      // Send the changes up to the parent component as an HTML string.
-      // This is here to demonstrate using `.toString()` but in a real app it
-      // would be better to avoid generating a string on each change.
-      this.props.onChange(
-        valueTextEditor.toString('html')
-      );
-    }
-  };
-
   handleOpenModal() {
     this.setState({ showModal: true });
   }
@@ -62,8 +50,6 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
   handleCloseModal() {
     this.setState({ showModal: false });
   }
-
-  handleChange = (e, { value }) => this.setState({ value })
 
   render() {
     return (

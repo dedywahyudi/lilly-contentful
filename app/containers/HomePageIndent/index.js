@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
 import ReactModal from 'react-modal';
+import Sortable from 'react-sortablejs';
 // import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
 // import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
 // import { makeSelectSearch } from '../App/selectors';
@@ -15,16 +16,48 @@ const FontAwesome = require('react-fontawesome');
 
 class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
-  static propTypes = {
-    // onChange: PropTypes.func,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
       showModal: false,
       showModalCollapsible: false,
       checked: false,
+      items:
+      [
+        { name: 'learn Sortable' },
+        { name: 'use gn-sortable' },
+        { name: 'Enjoy' },
+        { name: 'Nested',
+          list: [
+            { name: 'N1' },
+            { name: 'N2' },
+            { name: 'N3' },
+          ],
+        },
+        { name: 'Another Nested',
+          list: [
+            { name: 'N1.2' },
+            { name: 'N2.2' },
+            { name: 'N3.3' },
+          ],
+        },
+      ],
+      list: [
+        // { value: 'learn Sortable' },
+        // { value: 'use gn-sortable' },
+        // { value: 'Enjoy' },
+        { value: 'Collapsible Section',
+          list:
+          [
+            { value: 'Overview (Basic Content)', selected: false },
+            { value: 'Key Related (Link List)', selected: false },
+            { value: 'Contact Information (Data Table)', selected: false },
+          ],
+        },
+        { value: 'Summary (Basic Content)',
+          list:[ ],
+        },
+      ],
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -89,6 +122,24 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
   // handleChange = (e, { value }) => this.setState({ value })
 
   render() {
+    // const items = this.state.items.map(val => (<li data-id={val}>{val}</li>));
+    // const items =
+    //   this.state.items.map((item, index) => {
+    //     return (
+    //       <li key={index}>
+    //         {item.name}
+    //         {
+    //           item.list.map((subitem, index) => {
+    //             return (
+    //               <ul>
+    //                 <li key={index}>{subitem.name}</li>
+    //               </ul>
+    //             );
+    //           })
+    //         }
+    //       </li>
+    //     );
+    //   });
     return (
       <div id="sub-page">
         <Helmet
@@ -102,17 +153,6 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
             <div id="left-col">
 
               <div className="contentful-box border-grey">
-
-                {/* <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Contain one or more content sections within a collapsible section?</label>
-
-                  <div className="cf-form-horizontal">
-                    <div className="cf-form-option">
-                      <input type="checkbox" id="option-d" />
-                      <label htmlFor="option-d">Yes</label>
-                    </div>
-                  </div>
-                </div> */}
 
                 <div className="cf-form-field">
 
@@ -150,7 +190,9 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                       <div className="cf-form-field ovHidden">
                         <div className="fRight">
                           <button className="cf-btn-secondary" onClick={this.handleCloseModal}>No</button>
-                          <button className="cf-btn-primary success" onClick={this.handleCloseModal}>Yes</button>
+                          <Link to="/homepage1">
+                            <button className="cf-btn-primary success">Yes</button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -200,69 +242,73 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                     </div>
                   </ReactModal>
 
-                  <div className="collapsible-item">
-                    <div className="collapsible-left">
-                      <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Collapsible Section</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <Link to="/edit-section">
-                        <button>Edit</button>
-                      </Link>
-                      <button onClick={this.handleOpenModalCollapsible}>Remove</button>
-                    </div>
-                  </div>
-
-                  <div className="collapsible-item indent-one">
-                    <div className="collapsible-left">
-                      <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Overview (Basic Content)</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <Link to="/edit-section">
-                        <button>Edit</button>
-                      </Link>
-                      <button onClick={this.handleOpenModal}>Delete</button>
-                    </div>
-                  </div>
-
-                  <div className="collapsible-item indent-one">
-                    <div className="collapsible-left">
-                      <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Key Related (Link List)</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <Link to="/edit-section">
-                        <button>Edit</button>
-                      </Link>
-                      <button onClick={this.handleOpenModal}>Delete</button>
-                    </div>
-                  </div>
-
-                  <div className="collapsible-item indent-one">
-                    <div className="collapsible-left">
-                      <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Contact Information (Data Table)</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <Link to="/edit-section">
-                        <button>Edit</button>
-                      </Link>
-                      <button onClick={this.handleOpenModal}>Delete</button>
-                    </div>
-                  </div>
-
-                  <div className="collapsible-item">
-                    <div className="collapsible-left">
-                      <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                      <label htmlFor="option-d">Summary (Basic Content)</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <Link to="/edit-section">
-                        <button>Edit</button>
-                      </Link>
-                      <button onClick={this.handleOpenModal}>Delete</button>
-                    </div>
+                  <div className="cf-form-field">
+                    <Sortable
+                      tag="ul" // Defaults to "div"
+                      id="sortable-section"
+                      // items={this.state.list}
+                      // onChange={(items) => {
+                      //   this.setState({ items });
+                      //   console.log(`this.state.list: ` + JSON.stringify(this.state.list));
+                      // }}
+                      options={{
+                        animation: 150,
+                        // handle: '.drag-three-dots',
+                        // group: {
+                        //   name: 'shared',
+                        //   pull: true,
+                        //   put: true,
+                        // },
+                      }}
+                    >
+                      {
+                        this.state.list.map((item, index) => {
+                          return (
+                            <li key={index}>
+                              <div className="collapsible-item">
+                                <div className="collapsible-left">
+                                  <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                                  <label htmlFor="option-d">{item.value}</label>
+                                </div>
+                                <div className="collapsible-right">
+                                  <Link to="/edit-section">
+                                    <button>Edit</button>
+                                  </Link>
+                                  <button onClick={this.handleOpenModalCollapsible}>Remove</button>
+                                </div>
+                              </div>
+                              <Sortable
+                                tag="ul" // Defaults to "div"
+                                options={{
+                                  animation: 150,
+                                }}
+                              >
+                                {
+                                  item.list.map((subitem, index) => {
+                                    return (
+                                      <li key={index}>
+                                        <div className="collapsible-item indent-one">
+                                          <div className="collapsible-left">
+                                            <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                                            <label htmlFor="option-d">{subitem.value}</label>
+                                          </div>
+                                          <div className="collapsible-right">
+                                            <Link to="/edit-section">
+                                              <button>Edit</button>
+                                            </Link>
+                                            <button onClick={this.handleOpenModal}>Delete</button>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    )
+                                  })
+                                }
+                              </Sortable>
+                            </li>
+                          )
+                        })
+                      }
+                    </Sortable>
                   </div>
 
                 </div>

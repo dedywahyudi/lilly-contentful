@@ -338,6 +338,13 @@ html {
       margin-bottom: 0!important;
     }
   }
+  #sortable-section{
+    li{
+      ul{
+        margin-bottom: 0px!important;
+      }
+    }
+  }
   .collapsible-item{
     display: block;
     margin-bottom: 10px;
