@@ -254,11 +254,11 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                       options={{
                         animation: 150,
                         // handle: '.drag-three-dots',
-                        // group: {
-                        //   name: 'shared',
-                        //   pull: true,
-                        //   put: true,
-                        // },
+                        group: {
+                          name: 'parent',
+                          pull: true,
+                          put: true,
+                        },
                       }}
                     >
                       {
@@ -281,6 +281,11 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                                 tag="ul" // Defaults to "div"
                                 options={{
                                   animation: 150,
+                                  group: {
+                                    name: 'children',
+                                    pull: true,
+                                    put: true,
+                                  },
                                 }}
                               >
                                 {
