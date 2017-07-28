@@ -36,7 +36,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     this.state = {
       showModal: false,
       valueTextEditor: RichTextEditor.createEmptyValue(),
-      selectedValue: 'global',
+      selectedValue: '',
       disabled: false,
 			options: FLAVOURS,
       value: [],
@@ -46,7 +46,6 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.checkIfRadioGlobal = this.checkIfRadioGlobal.bind(this);
     // this.handleKeyPress = this.handleKeyPress.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -80,18 +79,10 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     this.setState({ showModal: false });
   }
 
-  handleChange(value) {
-    this.setState({selectedValue: value});
-    this.checkIfRadioGlobal();
-  }
-
-  checkIfRadioGlobal(){
-    console.log('this.state.selectedValue:' + this.state.selectedValue);
-    // if( this.state.selectedValue === 'global' ){
-    //   this.setState({ disabled: true });
-    // } else {
-    //   this.setState({ disabled: false });
-    // }
+  handleChange(e) {
+    this.setState({selectedValue: e.target.value });
+    // this.checkIfRadioGlobal();
+		console.log('this.state.selectedValue:' + this.state.selectedValue);
   }
 
   handleSelectChange (value) {
@@ -132,24 +123,15 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                 <div className="cf-form-field">
                   <label className="cf-text-dimmed">Geography <span className="cf-field-error">Required</span></label>
 
-                  <div className="cf-form-option">
-                    <RadioGroup
-                      name="fruit"
-                      selectedValue={this.state.selectedValue}
-                      onChange={this.handleChange}
-                    >
-                      <div className="cf-form-option">
-                        <Radio id="option-d" value="global" />
-                        <label htmlFor="option-d">Global (All Countries)</label>
-                      </div>
+									<div className="cf-form-option">
+										<input type="radio" id="option-d" value="global" checked={this.state.selectedValue === 'global'} onChange={this.handleChange} />
+										<label htmlFor="option-d">Global (All Countries)</label>
+									</div>
 
-                      <div className="cf-form-option">
-                        <Radio id="option-e" value="country" />
-                        <label htmlFor="option-e">Selected Country Only</label>
-                      </div>
-
-                    </RadioGroup>
-                  </div>
+									<div className="cf-form-option">
+										<input type="radio" id="option-e" value="country" checked={this.state.selectedValue === 'country'} onChange={this.handleChange} />
+										<label htmlFor="option-e">Selected Country Only</label>
+									</div>
 
                   <Select
                     multi

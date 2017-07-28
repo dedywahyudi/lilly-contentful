@@ -132,7 +132,7 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
                         <label htmlFor="option-d">Key Related (Link List)</label>
                       </div>
                       <div className="collapsible-right">
-                        <Link to="/edit-section">
+                        <Link to="/link-list">
                           <button>Edit</button>
                         </Link>
                         <button onClick={this.handleOpenModal}>Delete</button>
