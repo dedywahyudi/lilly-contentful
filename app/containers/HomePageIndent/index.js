@@ -383,11 +383,11 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                       // }}
                       options={{
                         animation: 150,
-                        handle: '.drag',
+                        // handle: '.drag',
                         // disabled: this.state.disableParent,
                         group: {
                           name: 'parent',
-                          pull: false,
+                          pull: true,
                           put: function(to, from, dragEl) {
                             return to.el.dataset.accepts === dragEl.dataset.type;
                           }
@@ -424,7 +424,7 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                                   data-accepts="children"
                                   options={{
                                     animation: 150,
-                                    handle: '.drag',
+                                    // handle: '.drag',
                                     draggable: ".indent-one",
                                     group: {
                                       name: 'children',

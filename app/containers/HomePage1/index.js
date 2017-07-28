@@ -201,7 +201,7 @@ class HomePage1 extends React.PureComponent { // eslint-disable-line react/prefe
                       // }}
                       options={{
                         animation: 150,
-                        handle: '.drag',
+                        // handle: '.drag',
                         // group: {
                         //   name: 'shared',
                         //   pull: true,

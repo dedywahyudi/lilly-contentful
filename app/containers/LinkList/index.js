@@ -376,7 +376,7 @@ class LinkList extends React.PureComponent { // eslint-disable-line react/prefer
                       // }}
                       options={{
                           animation: 150,
-                          handle: '.drag',
+                          // handle: '.drag',
                           // group: {
                           //   name: 'shared',
                           //   pull: true,
