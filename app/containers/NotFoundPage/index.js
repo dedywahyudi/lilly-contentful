@@ -45,7 +45,7 @@ class NotFound extends React.PureComponent {
         <Helmet
           title="Page not found"
           meta={[
-            { name: 'description', content: 'Page not found of TreanorHL' },
+            { name: 'description', content: 'Page not found of Lilly Contentful' },
           ]}
         />
 

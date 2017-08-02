@@ -32,23 +32,19 @@ const initialState = fromJS({
 function homeReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_USERNAME:
-
       return state
         .set('pagename', action.name);
     case LOAD_REPOS:
-
       return state
         .set('loading', true)
         .set('error', false)
         .setIn(['homeData', 'repositories'], false);
     case LOAD_REPOS_SUCCESS:
-
       return state
         .setIn(['homeData', 'repositories'], action.repos)
         .set('loading', false)
         .set('currentPage', action.pagename);
     case LOAD_REPOS_ERROR:
-
       return state
         .set('error', action.error)
         .set('loading', false);

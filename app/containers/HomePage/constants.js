@@ -9,7 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const CHANGE_USERNAME = 'treanorhl/home/CHANGE_USERNAME';
-export const LOAD_REPOS = 'treanorhl/home/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'treanorhl/home/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'treanorhl/home/LOAD_REPOS_ERROR';
+export const CHANGE_USERNAME = 'lilly/home/CHANGE_USERNAME';
+export const LOAD_REPOS = 'lilly/home/LOAD_REPOS';
+export const LOAD_REPOS_SUCCESS = 'lilly/home/LOAD_REPOS_SUCCESS';
+export const LOAD_REPOS_ERROR = 'lilly/home/LOAD_REPOS_ERROR';

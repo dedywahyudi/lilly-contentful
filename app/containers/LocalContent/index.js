@@ -130,7 +130,7 @@ class LocalContent extends React.PureComponent { // eslint-disable-line react/pr
                   </div>
 
                   <div className="cf-form-field">
-                    <button className="cf-btn-primary">Add Another Link List Section</button>
+                    <button className="cf-btn-primary">Add New Local Content</button>
                   </div>
 
                   <div className="cf-form-field ovHidden">

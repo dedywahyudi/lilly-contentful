@@ -9,7 +9,6 @@ import request from 'utils/request';
 import { LOAD_REPOS } from './constants';
 // import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 
-
 import { reposLoaded, repoLoadingError } from './actions';
 import { makeSelectPage } from './selectors';
 

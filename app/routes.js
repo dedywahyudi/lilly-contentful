@@ -22,6 +22,7 @@ export default function createRoutes(store) {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          import('containers/HomePage/actions'),
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
           import('containers/HomePage/sagastudio'),
@@ -30,11 +31,12 @@ export default function createRoutes(store) {
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, sagastudio, component]) => {
+        importModules.then(([actions, reducer, sagas, sagastudio, component]) => {
           injectReducer('home', reducer.default);
           injectSagas(sagas.default);
           injectSagas(sagastudio.default);
           renderRoute(component);
+          store.dispatch(actions.loadRepos(nextState.params.slug));
         });
 
         importModules.catch(errorLoading);

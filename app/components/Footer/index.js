@@ -18,7 +18,7 @@ class Footer extends React.PureComponent { // eslint-disable-line react/prefer-s
     if (this.props.mainnav === 'symposium' || this.props.mainnav === 'registration') {
       twitterLink = (
         <li>
-          <a href="http://www.twitter.com/TreanorHL_ST" target="_blank">
+          <a href="http://www.twitter.com/Lilly Contentful_ST" target="_blank">
             <Icon size="big" name="twitter" className="fa-twitter" />
           </a>
         </li>

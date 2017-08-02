@@ -39,10 +39,10 @@ export class App extends React.Component { // eslint-disable-line react/prefer-s
     return (
       <AppWrapper>
         <Helmet
-          titleTemplate="%s - TreanorHL"
-          defaultTitle="TreanorHL"
+          titleTemplate="%s"
+          defaultTitle="Lilly Contentful"
           meta={[
-            { name: 'description', content: 'TreanorHL' },
+            { name: 'description', content: 'Lilly Contentful' },
           ]}
         />
         {/* <Header /> */}

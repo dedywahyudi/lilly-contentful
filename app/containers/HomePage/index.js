@@ -2,26 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import RichTextEditor from 'react-rte';
-import { RadioGroup, Radio } from 'react-radio-group';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+// import { RadioGroup, Radio } from 'react-radio-group';
 import { Link } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
 // import ReactModal from 'react-modal';
-// import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
-// import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
-// import { makeSelectSearch } from '../App/selectors';
-// import { loadRepos } from './actions';
+import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
+import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
+import { makeSelectSearch } from '../App/selectors';
+import { loadRepos } from './actions';
 
 // const FontAwesome = require('react-fontawesome');
-const Select = require('react-select');
+// const Select = require('react-select');
 
 const FLAVOURS = [
-	{ label: 'United States', value: 'United States' },
-	{ label: 'China', value: 'China' },
-	{ label: 'Japan', value: 'Japan' },
-	{ label: 'Canada', value: 'Canada' },
-  { label: 'Mexico', value: 'Mexico' },
-  { label: 'Indonesia', value: 'Indonesia' },
-	{ label: 'International', value: 'International' },
+ { label: 'United States', value: 'United States' },
+ { label: 'China', value: 'China' },
+ { label: 'Japan', value: 'Japan' },
+ { label: 'Canada', value: 'Canada' },
+ { label: 'Mexico', value: 'Mexico' },
+ { label: 'Indonesia', value: 'Indonesia' },
+ { label: 'International', value: 'International' },
 ];
 
 
@@ -38,7 +40,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
       valueTextEditor: RichTextEditor.createEmptyValue(),
       selectedValue: '',
       disabled: false,
-			options: FLAVOURS,
+      options: FLAVOURS,
       value: [],
     };
 
@@ -52,7 +54,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 
   componentWillMount() {
     // this.props.onSubmitForm();
-    // this.props.onLoadStudio();
+    this.props.onLoadStudio();
   }
 
   componentDidMount() {
@@ -80,15 +82,15 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   handleChange(e) {
-    this.setState({selectedValue: e.target.value });
+    this.setState({ selectedValue: e.target.value });
     // this.checkIfRadioGlobal();
-		console.log('this.state.selectedValue:' + this.state.selectedValue);
+    // console.log('this.state.selectedValue:' + this.state.selectedValue);
   }
 
-  handleSelectChange (value) {
-		console.log('You\'ve selected:', value);
-		this.setState({ value });
-	}
+  handleSelectChange(value) {
+  // console.log('You\'ve selected:', value);
+    this.setState({ value });
+  }
 
   // handleKeyPress(target) {
   //   if (target.charCode === 13) {
@@ -119,29 +121,30 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
           <div id="two-cols">
             <div id="left-col">
 
-              <div className="contentful-box border-red">
+              {/* <div className="contentful-box border-red">
                 <div className="cf-form-field">
                   <label className="cf-text-dimmed">Geography <span className="cf-field-error">Required</span></label>
 
-									<div className="cf-form-option">
-										<input type="radio" id="option-d" value="global" checked={this.state.selectedValue === 'global'} onChange={this.handleChange} />
-										<label htmlFor="option-d">Global (All Countries)</label>
-									</div>
+                  <div className="cf-form-option">
+                    <input type="radio" id="option-d" value="global" checked={this.state.selectedValue === 'global'} onChange={this.handleChange} />
+                    <label htmlFor="option-d">Global (All Countries)</label>
+                  </div>
 
-									<div className="cf-form-option">
-										<input type="radio" id="option-e" value="country" checked={this.state.selectedValue === 'country'} onChange={this.handleChange} />
-										<label htmlFor="option-e">Selected Country Only</label>
-									</div>
+                  <div className="cf-form-option">
+                    <input type="radio" id="option-e" value="country" checked={this.state.selectedValue === 'country'} onChange={this.handleChange} />
+                    <label htmlFor="option-e">Selected Country Only</label>
+                  </div>
 
                   <Select
                     multi
                     simpleValue
                     disabled={this.state.disabled}
                     value={this.state.value}
-                    placeholder="Choose a Country or Region..." options={this.state.options} onChange={this.handleSelectChange} />
+                    placeholder="Choose a Country or Region..." options={this.state.options} onChange={this.handleSelectChange}
+                  />
                   <div className="cf-field-error">Required</div>
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className="contentful-box border-red">
                 <div className="cf-form-field">
@@ -186,6 +189,14 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                   <div className="cf-form-hint"><i>If populated will display in header section of page</i></div>
                 </div>
               </div> */}
+
+              <div className="contentful-box border-red">
+                <div className="cf-form-field">
+                  <label className="cf-text-dimmed">Content Model</label>
+                  LIST HERE
+                  {/* <div className="cf-field-error">Required</div> */}
+                </div>
+              </div>
 
               <div className="contentful-box border-grey">
                 <div className="cf-form-field">
@@ -1048,4 +1059,42 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 }
 
-export default HomePage;
+HomePage.propTypes = {
+  app: PropTypes.object,
+  setAppClientState: PropTypes.func,
+  loading: PropTypes.bool,
+  repos: PropTypes.oneOfType([
+    PropTypes.any,
+    PropTypes.bool,
+  ]),
+  // searchkeyword: PropTypes.string,
+  // onChangeSearch: PropTypes.func,
+  // onChangeSearcDefault: PropTypes.func,
+  // onSubmitForm: PropTypes.func,
+  onLoadStudio: PropTypes.func,
+  // onChangeMainNav: PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    // onChangeSearch: (evt) => dispatch(changeSearch(evt.target.value)),
+    // onChangeSearcDefault: (value) => dispatch(changeSearch(value)),
+    // onSubmitForm: (evt) => {
+    //   if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+    //   dispatch(loadRepos());
+    // },
+    onLoadStudio: () => { dispatch(loadStudioRepos()); },
+    // onChangeMainNav: (value) => dispatch(changeMainNav(value)),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  searchkeyword: makeSelectSearch(),
+  repos: makeSelectRepos(),
+  pagename: makeSelectPage(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
+});
+
+// Wrap the component to inject dispatch and state into it
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
