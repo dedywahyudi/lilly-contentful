@@ -14,7 +14,7 @@ import ReactModal from 'react-modal';
 const FontAwesome = require('react-fontawesome');
 // const Select = require('react-select');
 
-class DataTable extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class DataTableRow extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props) {
     super(props);
@@ -390,4 +390,4 @@ class DataTable extends React.PureComponent { // eslint-disable-line react/prefe
 }
 
 // Wrap the component to inject dispatch and state into it
-export default DataTable;
+export default DataTableRow;

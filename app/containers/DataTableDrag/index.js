@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
 import ReactModal from 'react-modal';
-// import Sortable from 'react-sortablejs';
+import Sortable from 'react-sortablejs';
 // import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
 // import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
 // import { makeSelectSearch } from '../App/selectors';
@@ -14,7 +14,7 @@ import ReactModal from 'react-modal';
 const FontAwesome = require('react-fontawesome');
 // const Select = require('react-select');
 
-class DataTable extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class DataTableDrag extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props) {
     super(props);
@@ -24,13 +24,9 @@ class DataTable extends React.PureComponent { // eslint-disable-line react/prefe
       showModalCollapsible: false,
       showModalNewLink: false,
       list: [
-        // { value: 'learn Sortable' },
-        // { value: 'use gn-sortable' },
-        // { value: 'Enjoy' },
-        // { value: 'Collapsible Section' },
-        { value: '2017 Company Objective Link' },
-        { value: 'Adverse Effect & Product Complaint', selected: false },
-        { value: 'Ask Expert', selected: false },
+        { value: 'Column One', draggable: false },
+        { value: 'Column Two', draggable: true },
+        { value: 'Column Three', draggable: true },
       ],
     };
 
@@ -302,69 +298,77 @@ class DataTable extends React.PureComponent { // eslint-disable-line react/prefe
                 </div>
 
                 <div className="cf-form-field">
+                  <Sortable
+                    tag="ul" // Defaults to "div"
+                    id="sortable-section"
+                    // items={this.state.list}
+                    // onChange={(items) => {
+                    //   this.setState({ items });
+                    //   console.log(`this.state.list: ` + JSON.stringify(this.state.list));
+                    // }}
+                    options={{
+                      animation: 150,
+                      filter: '.disabled',
+                      onMove: function (evt) {
+                        return evt.related.className.indexOf('disabled') === -1;
+                      }
+                      // group: {
+                      //   name: 'shared',
+                      //   pull: true,
+                      //   put: true,
+                      // },
+                    }}
+                  >
+                    {
+                      this.state.list.map((item, index) => {
+                        let disabled;
+                        if (item.draggable === false) {
+                          disabled = 'disabled';
+                        } else {
+                          disabled = 'enabled';
+                        }
+                        return (
+                          <li key={index} className={disabled}>
+                            <div className="collapsible-item">
+                              <div className="collapsible-left">
+                                <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                                <label htmlFor="option-d">{item.value}</label>
+                              </div>
+                              {/* <div className="collapsible-right">
+                                <Link to="/edit-section">
+                                  <button>Edit</button>
+                                </Link>
+                                <button onClick={this.handleOpenModal}>Delete</button>
+                              </div> */}
+                            </div>
 
-                  <div className="collapsible-item">
-                    <div className="collapsible-left">
-                      <label>Column One</label>
-                    </div>
-                  </div>
+                            <div className="cf-form-field">
+                              <label className="cf-text-dimmed">Column Header Name <span className="cf-field-error">Required</span></label>
+                              <input type="text" className="cf-form-input" aria-invalid="true" />
+                              <div className="ovHidden">
+                                <div className="cf-form-hint fRight">Required less than 256 characters</div>
+                              </div>
+                            </div>
 
-                </div>
+                            <div className="cf-form-field">
+                              <label className="cf-text-dimmed">Is table sortable by this column?</label>
 
-                <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Column Header Name <span className="cf-field-error">Required</span></label>
-                  <input type="text" className="cf-form-input" aria-invalid="true" />
-                  <div className="ovHidden">
-                    <div className="cf-form-hint fRight">Required less than 256 characters</div>
-                  </div>
-                </div>
-
-                <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Is table sortable by this column?</label>
-
-                  <div className="cf-form-horizontal">
-                    <div className="cf-form-option">
-                      <input type="radio" id="option-h" name="is-table-sortable" />
-                      <label htmlFor="option-h">Yes</label>
-                    </div>
-                    <div className="cf-form-option">
-                      <input type="radio" id="option-e" name="is-table-sortable" />
-                      <label htmlFor="option-h">No</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cf-form-field">
-
-                  <div className="collapsible-item">
-                    <div className="collapsible-left">
-                      <label>Column Two</label>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Column Header Name <span className="cf-field-error">Required</span></label>
-                  <input type="text" className="cf-form-input" aria-invalid="true" />
-                  <div className="ovHidden">
-                    <div className="cf-form-hint fRight">Required less than 256 characters</div>
-                  </div>
-                </div>
-
-                <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Is table sortable by this column?</label>
-
-                  <div className="cf-form-horizontal">
-                    <div className="cf-form-option">
-                      <input type="radio" id="option-h" name="is-table-sortable" />
-                      <label htmlFor="option-h">Yes</label>
-                    </div>
-                    <div className="cf-form-option">
-                      <input type="radio" id="option-e" name="is-table-sortable" />
-                      <label htmlFor="option-h">No</label>
-                    </div>
-                  </div>
+                              <div className="cf-form-horizontal">
+                                <div className="cf-form-option">
+                                  <input type="radio" id="option-h" name="is-table-sortable" />
+                                  <label htmlFor="option-h">Yes</label>
+                                </div>
+                                <div className="cf-form-option">
+                                  <input type="radio" id="option-e" name="is-table-sortable" />
+                                  <label htmlFor="option-h">No</label>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        )
+                      })
+                    }
+                  </Sortable>
                 </div>
 
                 <div className="cf-form-field ovHidden">
@@ -372,7 +376,7 @@ class DataTable extends React.PureComponent { // eslint-disable-line react/prefe
                     <Link to="/">
                       <button className="cf-btn-secondary">Cancel</button>
                     </Link>
-                    <Link to="/data-table-drag">
+                    <Link to="/data-table-row">
                       <button className="cf-btn-primary success">Save</button>
                     </Link>
 
@@ -390,4 +394,4 @@ class DataTable extends React.PureComponent { // eslint-disable-line react/prefe
 }
 
 // Wrap the component to inject dispatch and state into it
-export default DataTable;
+export default DataTableDrag;

@@ -174,6 +174,72 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/data-table-drag',
+      name: 'DataTableDrag',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/DataTableDrag'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/data-table-row',
+      name: 'DataTableRow',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/DataTableDrag'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/data-table-row-more',
+      name: 'DataTableRowMore',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HomePage/reducer'),
+          import('containers/HomePage/sagas'),
+          import('containers/HomePage/sagastudio'),
+          import('containers/DataTableDrag'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, sagastudio, component]) => {
+          injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          injectSagas(sagastudio.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/link-list',
       name: 'LinkList',
       getComponent(nextState, cb) {

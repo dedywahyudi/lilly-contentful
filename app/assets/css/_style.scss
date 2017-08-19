@@ -544,3 +544,11 @@ html {
     border: 3px solid #2185D0!important;
   }
 }
+
+#sortable-section{
+  .disabled{
+    .drag{
+      display: none!important;
+    }
+  }
+}
