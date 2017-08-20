@@ -203,7 +203,7 @@ export default function createRoutes(store) {
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
           import('containers/HomePage/sagastudio'),
-          import('containers/DataTableDrag'),
+          import('containers/DataTableRow'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -225,7 +225,7 @@ export default function createRoutes(store) {
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
           import('containers/HomePage/sagastudio'),
-          import('containers/DataTableDrag'),
+          import('containers/DataTableRowMore'),
         ]);
 
         const renderRoute = loadModule(cb);

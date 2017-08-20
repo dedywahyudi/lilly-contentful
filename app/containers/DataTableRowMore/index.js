@@ -5,7 +5,7 @@ import RichTextEditor from 'react-rte';
 import { Link } from 'react-router';
 // import { Checkbox, Grid, Modal, Icon } from 'semantic-ui-react';
 import ReactModal from 'react-modal';
-// import Sortable from 'react-sortablejs';
+import Sortable from 'react-sortablejs';
 // import { makeSelectPage, makeSelectRepos, makeSelectLoading, makeSelectError } from './selectors';
 // import { changeSearch, loadStudioRepos, changeMainNav } from '../App/actions';
 // import { makeSelectSearch } from '../App/selectors';
@@ -14,7 +14,7 @@ import ReactModal from 'react-modal';
 const FontAwesome = require('react-fontawesome');
 // const Select = require('react-select');
 
-class DataTableRow extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class DataTableRowMore extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props) {
     super(props);
@@ -23,15 +23,15 @@ class DataTableRow extends React.PureComponent { // eslint-disable-line react/pr
       valueTextEditor: RichTextEditor.createEmptyValue(),
       showModalCollapsible: false,
       showModalNewLink: false,
-      showRowOne: true,
+      showRowOne: false,
+      showRowTwo: false,
       list: [
         // { value: 'learn Sortable' },
         // { value: 'use gn-sortable' },
         // { value: 'Enjoy' },
         // { value: 'Collapsible Section' },
-        { value: '2017 Company Objective Link' },
-        { value: 'Adverse Effect & Product Complaint', selected: false },
-        { value: 'Ask Expert', selected: false },
+        { value: 'Row One', open: false },
+        { value: 'Row Two', open: false },
       ],
     };
 
@@ -42,6 +42,7 @@ class DataTableRow extends React.PureComponent { // eslint-disable-line react/pr
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleToggleShowRowOne = this.handleToggleShowRowOne.bind(this);
+    this.handleToggleShowRowTwo = this.handleToggleShowRowTwo.bind(this);
     this.handleOpenModalCollapsible = this.handleOpenModalCollapsible.bind(this);
     this.handleCloseModalCollapsible = this.handleCloseModalCollapsible.bind(this);
     // this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -59,6 +60,10 @@ class DataTableRow extends React.PureComponent { // eslint-disable-line react/pr
 
   handleToggleShowRowOne() {
     this.setState({ showRowOne: !this.state.showRowOne });
+  }
+
+  handleToggleShowRowTwo() {
+    this.setState({ showRowTwo: !this.state.showRowTwo });
   }
 
   handleOpenModal() {
@@ -288,94 +293,119 @@ class DataTableRow extends React.PureComponent { // eslint-disable-line react/pr
                 </div>
 
                 <div className="cf-form-field">
+                  <Sortable
+                    tag="ul" // Defaults to "div"
+                    id="sortable-section"
+                    // items={this.state.list}
+                    // onChange={(items) => {
+                    //   this.setState({ items });
+                    //   console.log(`this.state.list: ` + JSON.stringify(this.state.list));
+                    // }}
+                    options={{
+                        animation: 150,
+                        // handle: '.drag',
+                        // group: {
+                        //   name: 'shared',
+                        //   pull: true,
+                        //   put: true,
+                        // },
+                    }}
+                  >
+                    {
+                      this.state.list.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            <div className="collapsible-item">
+                              <div className="collapsible-left">
+                                <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                                <label htmlFor="option-d">{item.value}</label>
+                              </div>
+                              <div className="collapsible-right">
+                                <button onClick={this.handleToggleShowRowOne}>
+                                  {this.state.showRowOne ? 'Close' : 'Open'}
+                                </button>
+                                <button onClick={this.handleOpenModal}>Delete</button>
+                              </div>
+                            </div>
+                            <div className={this.state.showRowOne ? 'show' : 'hide'}>
+                              <label className="cf-text-dimmed">Column Headers: <b>Name</b></label>
 
-                  <div className="collapsible-item">
-                    <div className="collapsible-left">
-                      <label>Row One</label>
-                    </div>
-                    <div className="collapsible-right">
-                      <button onClick={this.handleToggleShowRowOne}>
-                        {this.state.showRowOne ? 'Close' : 'Open'}
-                      </button>
-                    </div>
-                  </div>
+                              <div className="cf-form-field">
+                                <RichTextEditor
+                                  value={this.state.valueTextEditor}
+                                  onChange={this.onChange}
+                                  className="contentful-editor"
+                                />
+                                <div className="cf-form-hint">0 words, 0 characters</div>
+                              </div>
 
-                </div>
+                              <div className="cf-form-field">
+                                <label className="cf-text-dimmed">Wrap Text Around Image</label>
+                                <select aria-invalid="true" className="cf-form-input">
+                                  <option defaultValue>Choose a value</option>
+                                  <option value="Option 1">Option 1</option>
+                                  <option value="Option 2">Option 2</option>
+                                  <option value="Option 3">Option 3</option>
+                                  <option value="Option 4">Option 4</option>
+                                  <option value="Option 5">Option 5</option>
+                                </select>
+                              </div>
 
-                <div className={this.state.showRowOne ? 'show' : 'hide'}>
-                  <label className="cf-text-dimmed">Column Headers: <b>Name</b></label>
+                              <hr />
 
-                  <div className="cf-form-field">
-                    <RichTextEditor
-                      value={this.state.valueTextEditor}
-                      onChange={this.onChange}
-                      className="contentful-editor"
-                    />
-                    <div className="cf-form-hint">0 words, 0 characters</div>
-                  </div>
+                              <label className="cf-text-dimmed">Column Headers: <b>Email</b></label>
 
-                  <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Wrap Text Around Image</label>
-                    <select aria-invalid="true" className="cf-form-input">
-                      <option defaultValue>Choose a value</option>
-                      <option value="Option 1">Option 1</option>
-                      <option value="Option 2">Option 2</option>
-                      <option value="Option 3">Option 3</option>
-                      <option value="Option 4">Option 4</option>
-                      <option value="Option 5">Option 5</option>
-                    </select>
-                  </div>
+                              <div className="cf-form-field">
+                                <RichTextEditor
+                                  value={this.state.valueTextEditor}
+                                  onChange={this.onChange}
+                                  className="contentful-editor"
+                                />
+                                <div className="cf-form-hint">0 words, 0 characters</div>
+                              </div>
 
-                  <hr />
+                              <div className="cf-form-field">
+                                <label className="cf-text-dimmed">Wrap Text Around Image</label>
+                                <select aria-invalid="true" className="cf-form-input">
+                                  <option defaultValue>Choose a value</option>
+                                  <option value="Option 1">Option 1</option>
+                                  <option value="Option 2">Option 2</option>
+                                  <option value="Option 3">Option 3</option>
+                                  <option value="Option 4">Option 4</option>
+                                  <option value="Option 5">Option 5</option>
+                                </select>
+                              </div>
 
-                  <label className="cf-text-dimmed">Column Headers: <b>Email</b></label>
+                              <hr />
 
-                  <div className="cf-form-field">
-                    <RichTextEditor
-                      value={this.state.valueTextEditor}
-                      onChange={this.onChange}
-                      className="contentful-editor"
-                    />
-                    <div className="cf-form-hint">0 words, 0 characters</div>
-                  </div>
+                              <label className="cf-text-dimmed">Column Headers: <b>Phone</b></label>
 
-                  <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Wrap Text Around Image</label>
-                    <select aria-invalid="true" className="cf-form-input">
-                      <option defaultValue>Choose a value</option>
-                      <option value="Option 1">Option 1</option>
-                      <option value="Option 2">Option 2</option>
-                      <option value="Option 3">Option 3</option>
-                      <option value="Option 4">Option 4</option>
-                      <option value="Option 5">Option 5</option>
-                    </select>
-                  </div>
+                              <div className="cf-form-field">
+                                <RichTextEditor
+                                  value={this.state.valueTextEditor}
+                                  onChange={this.onChange}
+                                  className="contentful-editor"
+                                />
+                                <div className="cf-form-hint">0 words, 0 characters</div>
+                              </div>
 
-                  <hr />
-
-                  <label className="cf-text-dimmed">Column Headers: <b>Phone</b></label>
-
-                  <div className="cf-form-field">
-                    <RichTextEditor
-                      value={this.state.valueTextEditor}
-                      onChange={this.onChange}
-                      className="contentful-editor"
-                    />
-                    <div className="cf-form-hint">0 words, 0 characters</div>
-                  </div>
-
-                  <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Wrap Text Around Image</label>
-                    <select aria-invalid="true" className="cf-form-input">
-                      <option defaultValue>Choose a value</option>
-                      <option value="Option 1">Option 1</option>
-                      <option value="Option 2">Option 2</option>
-                      <option value="Option 3">Option 3</option>
-                      <option value="Option 4">Option 4</option>
-                      <option value="Option 5">Option 5</option>
-                    </select>
-                  </div>
-
+                              <div className="cf-form-field">
+                                <label className="cf-text-dimmed">Wrap Text Around Image</label>
+                                <select aria-invalid="true" className="cf-form-input">
+                                  <option defaultValue>Choose a value</option>
+                                  <option value="Option 1">Option 1</option>
+                                  <option value="Option 2">Option 2</option>
+                                  <option value="Option 3">Option 3</option>
+                                  <option value="Option 4">Option 4</option>
+                                  <option value="Option 5">Option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                          </li>
+                        )
+                      })
+                    }
+                  </Sortable>
                 </div>
 
                 <div className="cf-form-field">
@@ -405,4 +435,4 @@ class DataTableRow extends React.PureComponent { // eslint-disable-line react/pr
 }
 
 // Wrap the component to inject dispatch and state into it
-export default DataTableRow;
+export default DataTableRowMore;

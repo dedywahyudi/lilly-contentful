@@ -410,35 +410,35 @@ class LinkList extends React.PureComponent { // eslint-disable-line react/prefer
 
                   {/* <div className="collapsible-item links">
                       <div className="collapsible-left">
-                        <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                        <span className="green-dot"><FontAwesome name="circle" /></span>
-                        <label>2017 Company Objective Link</label>
+                    <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                    <span className="green-dot"><FontAwesome name="circle" /></span>
+                    <label>2017 Company Objective Link</label>
                       </div>
                       <div className="collapsible-right">
-                        <button onClick={this.handleOpenModal}>Delete</button>
-                        <button>Edit</button>
+                    <button onClick={this.handleOpenModal}>Delete</button>
+                    <button>Edit</button>
                       </div>
                       </div>
                       <div className="collapsible-item links">
                       <div className="collapsible-left">
-                        <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                        <span className="green-dot"><FontAwesome name="circle" /></span>
-                        <label>Adverse Effect & Product Complaint</label>
+                    <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                    <span className="green-dot"><FontAwesome name="circle" /></span>
+                    <label>Adverse Effect & Product Complaint</label>
                       </div>
                       <div className="collapsible-right">
-                        <button onClick={this.handleOpenModal}>Delete</button>
-                        <button>Edit</button>
+                    <button onClick={this.handleOpenModal}>Delete</button>
+                    <button>Edit</button>
                       </div>
                       </div>
                       <div className="collapsible-item links">
                       <div className="collapsible-left">
-                        <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
-                        <span className="green-dot"><FontAwesome name="circle" /></span>
-                        <label>Ask Expert</label>
+                    <button href="#" className="drag"><FontAwesome name="ellipsis-v" /></button>
+                    <span className="green-dot"><FontAwesome name="circle" /></span>
+                    <label>Ask Expert</label>
                       </div>
                       <div className="collapsible-right">
-                        <button onClick={this.handleOpenModal}>Delete</button>
-                        <button>Edit</button>
+                    <button onClick={this.handleOpenModal}>Delete</button>
+                    <button>Edit</button>
                       </div>
                   </div> */}
                 </div>
