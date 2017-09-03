@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 // import RichTextEditor from 'react-rte';
 import { Link } from 'react-router';
@@ -21,7 +21,7 @@ class LinkList extends React.PureComponent { // eslint-disable-line react/prefer
     this.state = {
       showModal: false,
       // valueTextEditor: RichTextEditor.createEmptyValue(),
-      showModal: false,
+      // showModal: false,
       showModalCollapsible: false,
       showModalNewLink: false,
       list: [
@@ -80,13 +80,13 @@ class LinkList extends React.PureComponent { // eslint-disable-line react/prefer
     this.setState({ showModalCollapsible: false });
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal() {
-    this.setState({ showModal: false });
-  }
+  // handleOpenModal() {
+  //   this.setState({ showModal: true });
+  // }
+  //
+  // handleCloseModal() {
+  //   this.setState({ showModal: false });
+  // }
 
   // handleKeyPress(target) {
   //   if (target.charCode === 13) {
@@ -317,12 +317,16 @@ class LinkList extends React.PureComponent { // eslint-disable-line react/prefer
                 </div>
 
                 <div className="cf-form-field">
-                  <label className="cf-text-dimmed">Display Block or Image for List Header?</label>
+                  <label className="cf-text-dimmed">Choose your header background?</label>
 
                   <div className="cf-form-horizontal">
                     <div className="cf-form-option">
                       <input type="radio" id="option-d" />
-                      <label htmlFor="option-d">Dark Gray Color Block</label>
+                      <label htmlFor="option-d">Light Gray</label>
+                    </div>
+                    <div className="cf-form-option">
+                      <input type="radio" id="option-f" />
+                      <label htmlFor="option-f">Dark Gray</label>
                     </div>
                     <div className="cf-form-option">
                       <input type="radio" id="option-e" />

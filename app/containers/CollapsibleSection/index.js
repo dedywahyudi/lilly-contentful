@@ -118,12 +118,12 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
                         <input type="checkbox" id="option-d" />
                         <label htmlFor="option-d">Overview (Basic Content)</label>
                       </div>
-                      <div className="collapsible-right">
+                      {/* <div className="collapsible-right">
                         <Link to="/edit-section">
                           <button>Edit</button>
                         </Link>
                         <button onClick={this.handleOpenModal}>Delete</button>
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="collapsible-item">
@@ -131,12 +131,12 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
                         <input type="checkbox" id="option-d" />
                         <label htmlFor="option-d">Key Related (Link List)</label>
                       </div>
-                      <div className="collapsible-right">
+                      {/* <div className="collapsible-right">
                         <Link to="/link-list">
                           <button>Edit</button>
                         </Link>
                         <button onClick={this.handleOpenModal}>Delete</button>
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="collapsible-item">
@@ -144,12 +144,12 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
                         <input type="checkbox" id="option-d" />
                         <label htmlFor="option-d">Contact Information (Data Table)</label>
                       </div>
-                      <div className="collapsible-right">
+                      {/* <div className="collapsible-right">
                         <Link to="/edit-section">
                           <button>Edit</button>
                         </Link>
                         <button onClick={this.handleOpenModal}>Delete</button>
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="collapsible-item">
@@ -157,12 +157,12 @@ class CollapsibleContent extends React.PureComponent { // eslint-disable-line re
                         <input type="checkbox" id="option-d" />
                         <label htmlFor="option-d">Summary (Basic Content)</label>
                       </div>
-                      <div className="collapsible-right">
+                      {/* <div className="collapsible-right">
                         <Link to="/edit-section">
                           <button>Edit</button>
                         </Link>
                         <button onClick={this.handleOpenModal}>Delete</button>
-                      </div>
+                      </div> */}
                     </div>
 
                   </div>

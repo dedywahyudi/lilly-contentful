@@ -79,8 +79,8 @@ class LocalContent extends React.PureComponent { // eslint-disable-line react/pr
                 >
                   <div className="modal-content">
                     <div className="modal-message">
-                      Are you sure you want to delete Overview section from this page?
-                      <br /> This cannot be undone
+                      You cannot delete this section until you click edit and delete all local content within it.
+                      <br />
                     </div>
 
                     <div className="cf-form-field ovHidden">

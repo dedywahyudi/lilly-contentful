@@ -13,7 +13,7 @@ import { Link } from 'react-router';
 // const FontAwesome = require('react-fontawesome');
 // const Select = require('react-select');
 
-class Video extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class TeamMember extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     onChange: PropTypes.func,
@@ -92,10 +92,10 @@ class Video extends React.PureComponent { // eslint-disable-line react/prefer-st
 
               <div className="contentful-box border-blue">
                 <form>
-                  <p className="cf-btn-primary cf-block">New Team Member Section</p>
+                  <p className="cf-btn-primary cf-block">Video Section</p>
 
                   <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Team Member Name <span className="cf-field-error">Required</span></label>
+                    <label className="cf-text-dimmed">Video Title <span className="cf-field-error">Required</span></label>
                     <input type="text" value="" className="cf-form-input" aria-invalid="true" />
                     <div className="ovHidden">
                       <div className="cf-form-hint fRight">Required less than 256 characters</div>
@@ -103,35 +103,26 @@ class Video extends React.PureComponent { // eslint-disable-line react/prefer-st
                   </div>
 
                   <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Team Member Job Title <span className="cf-field-error">Required</span></label>
-                    <input type="text" value="" className="cf-form-input" aria-invalid="true" />
-                    <div className="ovHidden">
-                      <div className="cf-form-hint fRight">Required less than 256 characters</div>
+                    <label className="cf-text-dimmed">Display Title on Page?</label>
+
+                    <div className="cf-form-horizontal">
+                      <div className="cf-form-option">
+                        <input type="radio" id="option-d" />
+                        <label htmlFor="option-d">Yes</label>
+                      </div>
+                      <div className="cf-form-option">
+                        <input type="radio" id="option-e" />
+                        <label htmlFor="option-e">No</label>
+                      </div>
+                      <div className="cf-form-hint">If section is contained in a collapsible section, this title will be displayed, even if no is checked</div>
                     </div>
                   </div>
 
                   <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Team Member Profile Pic <span className="cf-field-error">Required</span></label>
-                    <button className="cf-btn-secondary">Create new entry and link</button>
-                    <button className="cf-btn-secondary">Link existing entries</button>
-                  </div>
-
-                  <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Team Member Profile Link (URL)</label>
+                    <label className="cf-text-dimmed">inVision Embed Code<span className="cf-field-error">Required</span></label>
                     <input type="text" value="" className="cf-form-input" aria-invalid="true" />
-                    <div className="ovHidden">
-                      <div className="cf-form-hint fRight">Required less than 256 characters</div>
-                    </div>
-                  </div>
-
-                  <div className="cf-form-field">
-                    <label className="cf-text-dimmed">Team Member Bio</label>
-                    <RichTextEditor
-                      value={this.state.valueTextEditor}
-                      onChange={this.onChange}
-                      className="contentful-editor"
-                    />
-                    <div className="cf-form-hint">0 words, 0 characters</div>
+                    <div className="cf-field-error">You can only add inVision video embed code in this section.</div>
+                    {/* <div className="cf-form-hint">You will find the inVision video ID at the end of your video URL after the last /. it will look similar to this: 1_841itjtj.</div> */}
                   </div>
 
                   <div className="cf-form-field">
@@ -169,4 +160,4 @@ class Video extends React.PureComponent { // eslint-disable-line react/prefer-st
 }
 
 // Wrap the component to inject dispatch and state into it
-export default Video;
+export default TeamMember;
